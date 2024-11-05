@@ -22,6 +22,7 @@ const sections = [
       },
       { id: 'engineering', type: 'checkbox', label: 'Engineering Badge' },
       { id: 'ouroboros', type: 'checkbox', label: 'Ouroboros Unlocked' },
+      { id: 'fragmentation', type: 'checkbox', label: 'Fragmentation Badge' },
     ],
   },
   {
