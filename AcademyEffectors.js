@@ -349,6 +349,48 @@ const sections = [
         type: 'number',
         label: 'Creation Gem Node #3 Bonus',
       },
+      {
+        id: 'ts04',
+        type: 'checkbox',
+        label: 'trait sphere 04: +1 ultima mod max level'
+      },
+      {
+        id: 'ts07',
+        type: 'checkbox',
+        label: 'trait sphere 07: x2 farm missions completed'
+      },
+      {
+        id: 'ts09',
+        type: 'checkbox',
+        label: 'trait sphere 09: +2 ultima mod max level'
+      },
+      {
+        id: 'ts11',
+        type: 'checkbox',
+        label: 'trait sphere 11: +2 ultima mod max level'
+      },
+      {
+        id: 'ts12',
+        type: 'checkbox',
+        label: 'trait sphere 12: +2 ultima mod max level'
+      },
+      {
+        id: 'ts14',
+        type: 'checkbox',
+        label: 'trait sphere 14: +3 ultima mod max level'
+      },
+      {
+        id: 'necrumBonus',
+        type: 'number',
+        label: 'Necrum Exchange material bonus',
+        style: { width: 60 },
+      },
+      {
+        id: 'extractorDrillBonus',
+        type: 'number',
+        label: 'Heavy-Duty Auto Extractor-Drill gadget material bonus',
+        style: { width: 60 },
+      },
     ],
   },
 ]
@@ -588,8 +630,29 @@ academyEffectorPortal.pages.default.dataLinkage = {
   set darkinno(value) {
     playerData.academy.badges.darkInnovation = value
   },
-  set creationgemnode3bonus(value) {
-    playerData.ouro.gemCreationNode3Bonus = value
+  set ts04(value) {
+    playerData.ouro.ts04 = value
+  },
+  set ts07(value) {
+    playerData.ouro.ts07 = value
+  },
+  set ts09(value) {
+    playerData.ouro.ts09 = value
+  },
+  set ts11(value) {
+    playerData.ouro.ts11 = value
+  },
+  set ts12(value) {
+    playerData.ouro.ts12 = value
+  },
+  set ts14(value) {
+    playerData.ouro.ts14 = value
+  },
+  set necrumBonus(value) {
+    playerData.ouro.necrumBonus = value
+  },
+  set extractorDrillBonus(value) {
+    playerData.ouro.extractorDrillBonus = value
   },
 
   get ouroboros() {
@@ -610,8 +673,32 @@ academyEffectorPortal.pages.default.dataLinkage = {
   get darkinno() {
     return playerData.academy.badges.darkInnovation
   },
-  get creationgemnode3bonus() {
-    return playerData.ouro.gemCreationNode3Bonus
+  get ultimaLoopModMaxLevelBonus() {
+    return playerData.ouro.ultimaLoopModMaxLevelBonus
+  },
+  get ts04() {
+    return playerData.ouro.ts04
+  },
+  get ts07() {
+    return playerData.ouro.ts07
+  },
+  get ts09() {
+    return playerData.ouro.ts09
+  },
+  get ts11() {
+    return playerData.ouro.ts11
+  },
+  get ts12() {
+    return playerData.ouro.ts12
+  },
+  get ts14() {
+    return playerData.ouro.ts14
+  },
+  get necrumBonus() {
+    return playerData.ouro.necrumBonus
+  },
+  get extractorDrillBonus() {
+    return playerData.ouro.extractorDrillBonus
   },
 }
 

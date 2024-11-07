@@ -259,6 +259,7 @@ const blankPlayer = {
       engineering: false,
 
       darkInnovation: false,
+      fragmentation: false,
     },
   },
   diamonds: {
@@ -279,6 +280,15 @@ const blankPlayer = {
     enabled: false,
     meltdown: 0.0001,
     gemCreationNode3Bonus: 1,
+    ts04: 0,
+    ts07: 0,
+    ts09: 0,
+    ts11: 0,
+    ts12: 0,
+    ts14: 0,
+    ultimaLoopModMaxLevelBonus: 0,
+    extractorDrillBonus: 0,
+    necrumBonus: 0,
   },
 }
 

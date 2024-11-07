@@ -43,6 +43,14 @@ let GameDB = {
         isTimeRounded: false,
       },
       {
+        id: 14,
+        baseTime: 12000,
+        maxPop: 120,
+        baseAP: 2300000,
+        baseMats: [0, 0, 0, 0, 0, 0, 0, 0],
+        isTimeRounded: false,
+      },
+      {
         id: 21,
         baseTime: 150,
         maxPop: 80,
@@ -67,6 +75,14 @@ let GameDB = {
         baseAP: 11500,
         // Exon, Organium, Adamorphium
         baseMats: [0, 0, 0, 2200, 320, 260, 0, 0],
+        isTimeRounded: true,
+      },
+      {
+        id: 24,
+        baseTime: 144000,
+        maxPop: 1000,
+        baseAP: 23000,
+        baseMats: [0, 0, 0, 0, 0, 0, 0, 0],
         isTimeRounded: true,
       },
       {
@@ -97,6 +113,15 @@ let GameDB = {
         isTimeRounded: true,
       },
       {
+        id: 34,
+        baseTime: 975000,
+        maxPop: 2000,
+        baseAP: 1000000,
+        // Darkseid
+        baseMats: [0, 0, 0, 0, 0, 0, 0, 0],
+        isTimeRounded: true,
+      },
+      {
         id: 41,
         baseTime: 21000,
         maxPop: 1000,
@@ -121,6 +146,15 @@ let GameDB = {
         baseAP: 6700000,
         // Exon, Moskom, Darkseid
         baseMats: [0, 0, 0, 30000, 0, 0, 20000, 5000],
+        isTimeRounded: true,
+      },
+      {
+        id: 44,
+        baseTime: 9750000,
+        maxPop: 20000,
+        baseAP: 6700000,
+        // Exon, Moskom, Darkseid
+        baseMats: [0, 0, 0, 0, 0, 0, 0, 0],
         isTimeRounded: true,
       },
     ], // END .farms

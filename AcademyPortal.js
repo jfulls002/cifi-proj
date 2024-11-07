@@ -331,6 +331,8 @@ function GetStaticMatBonus() {
 
     staticMatBonus *= playerData.ouro.meltdown || 0
     staticMatBonus *= 0.0689 // ouro mat nerf
+    staticMatBonus *= playerData.ouro.necrumBonus
+    staticMatBonus *= playerData.ouro.excavatorDrillBonus
   }
 
   return staticMatBonus
