@@ -73,6 +73,8 @@ function CalculateFarmTimes(getRawTime = false) {
 function GetMaxMissionRate() {
   let farms = [...GameDB.academy.farms]
 
+  const maxFarms = GameDB.academy.maxFarms
+
   let missionSpeedBonus = GetMissionSpeedBonus()
 
   let personnel = [
@@ -113,15 +115,15 @@ function GetMaxMissionRate() {
   let farmDetails = []
 //REWORK FOR SCALABILITY
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < 4; farm++) { //consts bad
+    for (let farm = 0; farm < maxFarms; farm++) {
       let farmSpecs = {
-        id: farms[planet * 4 + farm].id,
+        id: farms[planet * maxFarms + farm].id,
         locked: false,
-        maxPop: farms[planet * 4 + farm].maxPop,
+        maxPop: farms[planet * maxFarms + farm].maxPop,
         currentPop: 0,
         popDistro: [0, 0, 0, 0],
         power: 0,
-        baseTime: farms[planet * 4 + farm].baseTime / missionSpeedBonus,
+        baseTime: farms[planet * maxFarms + farm].baseTime / missionSpeedBonus,
         get availSpace() {
           return this.maxPop - this.currentPop
         },

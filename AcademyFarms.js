@@ -715,7 +715,7 @@ function maximizeMissionRate() {
   GetMaxMissionRate()
 
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < 3; farm++) {
+    for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
       for (let personnel = 0; personnel < 4; personnel++) {
         let type = GameDB.academy.personnel[personnel]
         portalPanel[`farm${planet}${farm}${type}`].value =
@@ -730,7 +730,7 @@ function maximizeMissionRate() {
 
 function clearMissions() {
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < 3; farm++) {
+    for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
       if (playerData.academy.farms[planet][farm].locked) continue
 
       for (let personnel = 0; personnel < 4; personnel++) {

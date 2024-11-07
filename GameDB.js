@@ -3,6 +3,7 @@ let GameDB = {
   academy: {
     personnel: ['pods', 'fireteams', 'titans', 'corvettes'],
     planets: 4,
+    maxFarms: 4,
     materials: [
       'Difar',
       'Kento',
