@@ -140,7 +140,7 @@ academyFarmPortal.pages.default.dataLinkage = {
 
 // Adding farm personnel linkages
 for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-  for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
+  for (let farm = 0; farm < 3; farm++) {
     let propertyName = `farm${planet}${farm}pods`
     Object.defineProperty(
       academyFarmPortal.pages.default.dataLinkage,
@@ -308,7 +308,7 @@ academyFarmPortal.pages.default.initFunction = function (panel) {
     table.appendChild(tbody)
 
     for (let plannet = 0; plannet < GameDB.academy.planets; plannet++) {
-      for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
+      for (let farm = 0; farm < 4; farm++) {
         const row = createElement('tr')
         row.appendChild(
           createElement('td', 'text-end', null, `${plannet + 1}-${farm + 1}`),
@@ -535,19 +535,12 @@ academyFarmPortal.pages.default.initFunction = function (panel) {
         { value: '11', label: '1-1' },
         { value: '12', label: '1-2' },
         { value: '13', label: '1-3' },
-        { value: '14', label: '1-4' },
         { value: '21', label: '2-1' },
         { value: '22', label: '2-2' },
         { value: '23', label: '2-3' },
-        { value: '24', label: '2-4' },
         { value: '31', label: '3-1' },
         { value: '32', label: '3-2' },
         { value: '33', label: '3-3' },
-        { value: '34', label: '4-4' },
-        { value: '41', label: '4-1' },
-        { value: '42', label: '4-2' },
-        { value: '43', label: '4-3' },
-        { value: '44', label: '4-4' },
       ]
 
       const filter = $(
@@ -691,10 +684,10 @@ function PopulateTiming() {
   const matBonus = GetCurrentMatBonus()
 
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
-      const farmInfo = GameDB.academy.farms[planet * GameDB.academy.maxFarms + farm]
+    for (let farm = 0; farm < 3; farm++) {
+      const farmInfo = GameDB.academy.farms[planet * 3 + farm]
       const maxPersonnel = farmInfo.maxPop
-      let datum = farmData[planet * GameDB.academy.maxFarms + farm]
+      let datum = farmData[planet * 3 + farm]
 
       const totalEl = portalPanel[`farm${planet}${farm}total`]
       totalEl.innerText = datum.personnel
