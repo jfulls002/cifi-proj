@@ -308,7 +308,7 @@ academyFarmPortal.pages.default.initFunction = function (panel) {
     table.appendChild(tbody)
 
     for (let plannet = 0; plannet < GameDB.academy.planets; plannet++) {
-      for (let farm = 0; farm < 3; farm++) {
+      for (let farm = 0; farm < 4; farm++) {
         const row = createElement('tr')
         row.appendChild(
           createElement('td', 'text-end', null, `${plannet + 1}-${farm + 1}`),
