@@ -685,9 +685,9 @@ function PopulateTiming() {
 
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
     for (let farm = 0; farm < 3; farm++) {
-      const farmInfo = GameDB.academy.farms[planet * 3 + farm]
+      const farmInfo = GameDB.academy.farms[planet * GameDB.academy.maxFarms + farm]
       const maxPersonnel = farmInfo.maxPop
-      let datum = farmData[planet * 3 + farm]
+      let datum = farmData[planet * GameDB.academy.maxFarms + farm]
 
       const totalEl = portalPanel[`farm${planet}${farm}total`]
       totalEl.innerText = datum.personnel
