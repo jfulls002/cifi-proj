@@ -117,7 +117,6 @@ let GameDB = {
         baseTime: 975000,
         maxPop: 2000,
         baseAP: 1000000,
-        // Darkseid
         baseMats: [0, 0, 0, 0, 0, 0, 0, 0],
         isTimeRounded: true,
       },
@@ -153,7 +152,6 @@ let GameDB = {
         baseTime: 9750000,
         maxPop: 20000,
         baseAP: 6700000,
-        // Exon, Moskom, Darkseid
         baseMats: [0, 0, 0, 0, 0, 0, 0, 0],
         isTimeRounded: true,
       },

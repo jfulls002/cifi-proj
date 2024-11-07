@@ -111,17 +111,17 @@ function GetMaxMissionRate() {
   ]
 
   let farmDetails = []
-
+//REWORK FOR SCALABILITY
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < 3; farm++) {
+    for (let farm = 0; farm < 4; farm++) { //consts bad
       let farmSpecs = {
-        id: farms[planet * 3 + farm].id,
+        id: farms[planet * 4 + farm].id,
         locked: false,
-        maxPop: farms[planet * 3 + farm].maxPop,
+        maxPop: farms[planet * 4 + farm].maxPop,
         currentPop: 0,
         popDistro: [0, 0, 0, 0],
         power: 0,
-        baseTime: farms[planet * 3 + farm].baseTime / missionSpeedBonus,
+        baseTime: farms[planet * 4 + farm].baseTime / missionSpeedBonus,
         get availSpace() {
           return this.maxPop - this.currentPop
         },
@@ -331,18 +331,40 @@ function GetStaticMatBonus() {
 
     staticMatBonus *= playerData.ouro.meltdown || 0
     staticMatBonus *= 0.0689 // ouro mat nerf
-    staticMatBonus *= playerData.ouro.necrumBonus
-    staticMatBonus *= playerData.ouro.excavatorDrillBonus
+  }
+  if (playerData.knox.enabled) {
+    if (playerData.ouro.necrumBonus > 0)
+      staticMatBonus *= playerData.ouro.necrumBonus
+    if (playerData.ouro.excavatorDrillBonus > 0)
+      staticMatBonus *= playerData.ouro.excavatorDrillBonus
   }
 
   return staticMatBonus
+}
+function GetUltimaMaxLevelBonus() {
+  const ouroEnabled = playerData.ouro.enabled
+  const ouroPD = playerData.ouro
+  let ultimaMaxLevelBonus = 0
+  if (ouroEnabled){
+    if (ouroPD.ts04)
+      ultimaMaxLevelBonus += 1
+    if (ouroPD.ts09)
+      ultimaMaxLevelBonus += 2
+    if (ouroPD.ts11)
+      ultimaMaxLevelBonus += 2
+    if (ouroPD.ts12)
+      ultimaMaxLevelBonus += 2
+    if (ouroPD.ts14)
+      ultimaMaxLevelBonus += 3
+  }
+  return ultimaMaxLevelBonus
 }
 
 function GetDynamicMatBonus() {
   return Math.pow(
     0.01 * playerData.loopMods.zeusRankBenefits + 1,
-    playerData.fleet.zeus.rank.current,
-  )
+    playerData.fleet.zeus.rank.current,) *
+    Math.pow(0.1 * playerData.knox.knoxSOWlvl + 1, playerData.knox.maxStage,)
 }
 
 function GetCurrentMatBonus() {

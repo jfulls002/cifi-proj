@@ -21,8 +21,9 @@ const sections = [
         style: { width: 80 },
       },
       { id: 'engineering', type: 'checkbox', label: 'Engineering Badge' },
-      { id: 'ouroboros', type: 'checkbox', label: 'Ouroboros Unlocked' },
       { id: 'fragmentation', type: 'checkbox', label: 'Fragmentation Badge' },
+      { id: 'ouroboros', type: 'checkbox', label: 'Ouroboros Unlocked' },
+      { id: 'knox', type: 'checkbox', label: 'Knox Unlocked' },
     ],
   },
   {
@@ -379,6 +380,30 @@ const sections = [
         type: 'checkbox',
         label: 'trait sphere 14: +3 ultima mod max level'
       },
+    ],
+  },
+  {
+    name: 'Knox Content',
+    isKnox: true,
+    children: [
+      {
+        id: 'knoxMaxStage',
+        type: 'number',
+        label: 'Knox Max Stage Reached',
+        style: { width: 60 },
+      },
+      {
+        id: 'knoxAPSOWlvl',
+        type: 'number',
+        label: 'Knox Academy Points Spoils Of War Level',
+        style: { width: 60 },
+      },
+      {
+        id: 'knoxMatSOWlvl',
+        type: 'number',
+        label: 'Knox Materials Spoils Of War Level',
+        style: { width: 60 },
+      },
       {
         id: 'necrumBonus',
         type: 'number',
@@ -391,8 +416,8 @@ const sections = [
         label: 'Heavy-Duty Auto Extractor-Drill gadget material bonus',
         style: { width: 60 },
       },
-    ],
-  },
+    ]
+  }
 ]
 
 academyEffectorPortal.pages.default.dataLinkage = {
@@ -648,11 +673,20 @@ academyEffectorPortal.pages.default.dataLinkage = {
   set ts14(value) {
     playerData.ouro.ts14 = value
   },
+  set knoxMaxStage(value) {
+    playerData.knox.maxStage = value
+  },
+  set knoxAPSOWlvl(value) {
+    playerData.knox.knoxAPSOWlvl = value
+  },
+  set knoxMatSOWlvl(value) {
+    playerData.knox.knoxMatSOWlvl = value
+  },
   set necrumBonus(value) {
-    playerData.ouro.necrumBonus = value
+    playerData.knox.necrumBonus = value
   },
   set extractorDrillBonus(value) {
-    playerData.ouro.extractorDrillBonus = value
+    playerData.knox.extractorDrillBonus = value
   },
 
   get ouroboros() {
@@ -694,11 +728,20 @@ academyEffectorPortal.pages.default.dataLinkage = {
   get ts14() {
     return playerData.ouro.ts14
   },
+  get knoxMaxStage() {
+    return playerData.knox.maxStage
+  },
+  get knoxAPSOWlvl() {
+    return playerData.knox.knoxAPSOWlvl
+  },
+  get knoxMatSOWlvl() {
+    return playerData.knox.knoxMatSOWlvl
+  },
   get necrumBonus() {
-    return playerData.ouro.necrumBonus
+    return playerData.knox.necrumBonus
   },
   get extractorDrillBonus() {
-    return playerData.ouro.extractorDrillBonus
+    return playerData.knox.extractorDrillBonus
   },
 }
 
@@ -706,10 +749,11 @@ academyEffectorPortal.pages.default.initFunction = function (panel) {
   const wrapper = createElement('div', 'section-2', { style: 'gap: 20px' })
 
   const ouroEnabled = !!portalPanel.dataLinkage.ouroboros
+  const knoxEnabled = !!portalPanel.dataLinkage.knox
 
-  sections.forEach(({ name, children, style, isOuro }) => {
+  sections.forEach(({ name, children, style, isOuro, isKnox }) => {
     if (isOuro && !ouroEnabled) return
-
+    if (isKnox && !knoxEnabled) return
     const section = createElement('div', 'section-3', { style })
     const header = createElement('h5', '', null, name)
     section.appendChild(header)

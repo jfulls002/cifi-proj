@@ -147,6 +147,14 @@ const blankPlayer = {
           corvettes: 0,
           locked: false,
         },
+        {
+          // Farm 1-4
+          pods: 0,
+          fireteams: 0,
+          titans: 0,
+          corvettes: 0,
+          locked: false,
+        },
       ],
       [
         // Planet 2
@@ -174,6 +182,14 @@ const blankPlayer = {
           corvettes: 0,
           locked: false,
         },
+        {
+          // Farm 2-4
+          pods: 0,
+          fireteams: 0,
+          titans: 0,
+          corvettes: 0,
+          locked: false,
+        }
       ],
       [
         // Planet 3
@@ -201,6 +217,14 @@ const blankPlayer = {
           corvettes: 0,
           locked: false,
         },
+        {
+          // Farm 3-4
+          pods: 0,
+          fireteams: 0,
+          titans: 0,
+          corvettes: 0,
+          locked: false,
+        },
       ],
       [
         // Planet 4
@@ -222,6 +246,14 @@ const blankPlayer = {
         },
         {
           // Farm 4-3
+          pods: 0,
+          fireteams: 0,
+          titans: 0,
+          corvettes: 0,
+          locked: false,
+        },
+        {
+          // Farm 4-4
           pods: 0,
           fireteams: 0,
           titans: 0,
@@ -287,9 +319,15 @@ const blankPlayer = {
     ts12: 0,
     ts14: 0,
     ultimaLoopModMaxLevelBonus: 0,
+  },
+  knox: {
+    enabled: false,
+    maxStage: 0,
+    knoxAPSOWlvl: 0,
+    knoxMatSOWlvl: 0,
     extractorDrillBonus: 0,
     necrumBonus: 0,
-  },
+  }
 }
 
 const LSKey = 'CifiProjSave'
@@ -339,6 +377,10 @@ function fixPlayerData() {
 
   if (!playerData.fleet.ouro) {
     playerData.fleet.ouro = blankPlayer.fleet.ouro
+  }
+
+  if(!playerData.knox) {
+    playerData.knox = blankPlayer.knox
   }
 
   if (playerData.academy.farms.length < 4)
