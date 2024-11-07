@@ -140,7 +140,7 @@ academyFarmPortal.pages.default.dataLinkage = {
 
 // Adding farm personnel linkages
 for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-  for (let farm = 0; farm < 3; farm++) {
+  for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
     let propertyName = `farm${planet}${farm}pods`
     Object.defineProperty(
       academyFarmPortal.pages.default.dataLinkage,
