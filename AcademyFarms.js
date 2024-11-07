@@ -684,7 +684,7 @@ function PopulateTiming() {
   const matBonus = GetCurrentMatBonus()
 
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < 3; farm++) {
+    for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
       const farmInfo = GameDB.academy.farms[planet * GameDB.academy.maxFarms + farm]
       const maxPersonnel = farmInfo.maxPop
       let datum = farmData[planet * GameDB.academy.maxFarms + farm]
