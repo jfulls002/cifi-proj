@@ -892,7 +892,7 @@ function genProduction(table, contrib) {
     table.innerHTML = ''
 
     if (farms.length === 0) {
-      table.innerHTML = '' // TODO
+      table.innerHTML = '' // TODO //fuck do you mean to do
       return
     }
 
