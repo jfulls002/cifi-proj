@@ -21,7 +21,6 @@ const sections = [
         style: { width: 80 },
       },
       { id: 'engineering', type: 'checkbox', label: 'Engineering Badge' },
-      { id: 'fragmentation', type: 'checkbox', label: 'Fragmentation Badge' },
       { id: 'ouroboros', type: 'checkbox', label: 'Ouroboros Unlocked' },
       { id: 'knox', type: 'checkbox', label: 'Knox Unlocked' },
     ],
@@ -345,6 +344,7 @@ const sections = [
         text: '/ 100',
       },
       { id: 'darkinno', type: 'checkbox', label: 'Dark Innovation Badge' },
+      { id: 'fragmentation', type: 'checkbox', label: 'Fragmentation Badge' },
       {
         id: 'creationgemnode3bonus',
         type: 'number',
@@ -655,6 +655,9 @@ academyEffectorPortal.pages.default.dataLinkage = {
   set darkinno(value) {
     playerData.academy.badges.darkInnovation = value
   },
+  set fragmentation(value) {
+    playerData.academy.badges.fragmentation = value
+  },
   set ts04(value) {
     playerData.ouro.ts04 = value
   },
@@ -672,21 +675,6 @@ academyEffectorPortal.pages.default.dataLinkage = {
   },
   set ts14(value) {
     playerData.ouro.ts14 = value
-  },
-  set knoxMaxStage(value) {
-    playerData.knox.maxStage = value
-  },
-  set knoxAPSOWlvl(value) {
-    playerData.knox.knoxAPSOWlvl = value
-  },
-  set knoxMatSOWlvl(value) {
-    playerData.knox.knoxMatSOWlvl = value
-  },
-  set necrumBonus(value) {
-    playerData.knox.necrumBonus = value
-  },
-  set extractorDrillBonus(value) {
-    playerData.knox.extractorDrillBonus = value
   },
 
   get ouroboros() {
@@ -706,6 +694,9 @@ academyEffectorPortal.pages.default.dataLinkage = {
   },
   get darkinno() {
     return playerData.academy.badges.darkInnovation
+  },
+  get fragmentation() {
+    return playerData.academy.badges.fragmentation
   },
   get ultimaLoopModMaxLevelBonus() {
     return playerData.ouro.ultimaLoopModMaxLevelBonus
@@ -727,6 +718,29 @@ academyEffectorPortal.pages.default.dataLinkage = {
   },
   get ts14() {
     return playerData.ouro.ts14
+  },
+
+  set knox(value) {
+    playerData.knox.enabled = value
+  },
+  set knoxMaxStage(value) {
+    playerData.knox.maxStage = value
+  },
+  set knoxAPSOWlvl(value) {
+    playerData.knox.knoxAPSOWlvl = value
+  },
+  set knoxMatSOWlvl(value) {
+    playerData.knox.knoxMatSOWlvl = value
+  },
+  set necrumBonus(value) {
+    playerData.knox.necrumBonus = value
+  },
+  set extractorDrillBonus(value) {
+    playerData.knox.extractorDrillBonus = value
+  },
+
+  get knox() {
+    return playerData.knox.enabled
   },
   get knoxMaxStage() {
     return playerData.knox.maxStage
@@ -941,7 +955,7 @@ academyEffectorPortal.pages.default.updateFunction = function (e) {
     portalPanel.dataLinkage[e.target.id] = e.target.checked
     SavePlayerData()
 
-    if (e.target.id === 'ouroboros') {
+    if (e.target.id === 'ouroboros' || e.target.id === 'knox') {
       location.reload()
     }
 
