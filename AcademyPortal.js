@@ -18,8 +18,8 @@ function CalculateFarmTimes(getRawTime = false) {
 
   let farmData = []
   for (let planet = 0; planet < GameDB.academy.planets; planet++) {
-    for (let farm = 0; farm < 3; farm++) {
-      const farmInfo = GameDB.academy.farms[planet * 3 + farm]
+    for (let farm = 0; farm < GameDB.academy.maxFarms; farm++) {
+      const farmInfo = GameDB.academy.farms[planet * GameDB.academy.maxFarms + farm]
       const farmSetting = playerData.academy.farms[planet][farm]
       const personnelSetting = playerData.academy.personnel
 
